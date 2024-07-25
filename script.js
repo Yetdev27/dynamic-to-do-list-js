@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     listItem.appendChild(removeButton);
     taskList.appendChild(listItem);
 
+    // Add the 'foo' class to the newly created list item
+    listItem.classList.add('foo');
+
     taskInput.value = '';
   }
 
@@ -35,4 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
