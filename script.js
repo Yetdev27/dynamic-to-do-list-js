@@ -38,3 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+// Load tasks from Local Storage
+function loadTasks() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    storedTasks.forEach(taskText => addTask(taskText, false)); // 'false' indicates not to save again to Local Storage
+}
+
+// Add a task (adjust as needed)
+function addTask(taskText, save = true) {
+    // Task creation logic remains the same
+
+    if (save) {
+        const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        storedTasks.push(taskText);
+        localStorage.setItem('tasks', JSON.stringify(storedTasks));
+    }
+}
+
+// Invoke loadTasks when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+    // Other initialization code
+});
